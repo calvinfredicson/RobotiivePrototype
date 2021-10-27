@@ -7,5 +7,9 @@ export const routeList: routeListObj[] = [
   {
     title: "Delayed Login",
     url: "/DelayedLogin/"
+  },
+  {
+    title: 'Load Recipe',
+    url: "/LoadRecipe/"
   }
 ]

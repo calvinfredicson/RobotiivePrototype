@@ -3,7 +3,8 @@ import { ArrowDropDownOutlined } from '@mui/icons-material'
 import { Box, Paper, Typography, useTheme } from '@mui/material'
 import { useCallback, useState } from 'react'
 import { useRouter } from 'next/router'
-import { delay, generateRoute } from '../utilityFunctions'
+import { delay, generateRoute } from '../../utilityFunctions'
+
 
 interface CitrixPageItemProps {
   imageSrc: string,

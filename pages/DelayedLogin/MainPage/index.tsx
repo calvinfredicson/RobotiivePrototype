@@ -98,7 +98,7 @@ const Content = styled(Box, { name: 'ContentBox' })(() => ({
 }))
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<MainPageProps>> {
-  const permission = await getAPI('http://127.0.0.1:3000/api/login/')
+  const permission = await getAPI('http://localhost:3000/api/login/')
   return {
     props: permission
   }
