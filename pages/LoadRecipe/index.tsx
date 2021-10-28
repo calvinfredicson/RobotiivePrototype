@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import { useState, useCallback, ChangeEvent, FormEvent } from "react"
 import { LoadingPage } from "../../Components"
 import { BasicInfoDialog } from "../../Components/Dialogs"
-import { delay, generateRoute } from "../../utilityFunctions"
+import { delay } from "../../utilityFunctions"
 
 const Index: NextPage = () => {
   const theme = useTheme()
@@ -19,15 +19,22 @@ const Index: NextPage = () => {
     if (!e.target.files) return
     setSelectedFile(e.target.files[0])
   }, [])
-  const infoText = "Fill the ID, machineID, case file and press config button. After pressing select Option 2 and subOption 2. Finally click next"
+  const infoText = "Fill the ID, machineID, case file and press config button. After pressing select Option 2 and subOption 2. Finally click next. Notes: there could be delays somewhere"
 
   const toComplete = useCallback(async (e: FormEvent) => {
     e.preventDefault()
     setLoading(true)
     await delay(5)
     setLoading(false)
-    router.replace(generateRoute(router.pathname, '/ProcessComplete/'))
-  }, [router, setLoading])
+    router.replace("http://localhost:3000/ProcessComplete")
+  }, [router])
+
+  const handleRadioClick = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
+    setLoading(true)
+    await delay(5)
+    setLoading(false)
+    setSelectedRadio(e.target.value)
+  }, [])
 
   if (!loading) {
     return (
@@ -52,7 +59,7 @@ const Index: NextPage = () => {
               selectedRadio == "Option 2" && (
                 <FormControl component="fieldset" style={{ gridColumn: 'span 3' }}>
                   <FormLabel component="legend">Config</FormLabel>
-                  <RadioGroup row aria-label="gender" name="row-radio-buttons-group" value={subOption} onChange={e => setSubOption(e.target.value)}>
+                  <RadioGroup row aria-label="gender" name="row-radio-buttons-group" value={subOption} onChange={(e) => setSubOption(e.target.value)}>
                     <FormControlLabel value="Sub Option-1" control={<Radio />} label="Sub Option 1" />
                     <FormControlLabel value="Sub Option-2" control={<Radio />} label="Sub Option 2" />
                   </RadioGroup>
@@ -63,7 +70,7 @@ const Index: NextPage = () => {
               showConfig && (
                 <FormControl component="fieldset" style={{ gridColumn: 'span 3' }}>
                   <FormLabel component="legend">Config</FormLabel>
-                  <RadioGroup row aria-label="gender" name="row-radio-buttons-group" value={selectedRadio} onChange={e => setSelectedRadio(e.target.value)}>
+                  <RadioGroup row aria-label="gender" name="row-radio-buttons-group" value={selectedRadio} onChange={handleRadioClick}>
                     <FormControlLabel value="Option 1" control={<Radio />} label="Option 1" />
                     <FormControlLabel value="Option 2" control={<Radio />} label="Option 2" />
                     <FormControlLabel value="Option 3" control={<Radio />} label="Option 3" />

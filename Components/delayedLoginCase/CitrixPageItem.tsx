@@ -1,32 +1,19 @@
 import Image from 'next/image'
 import { ArrowDropDownOutlined } from '@mui/icons-material'
 import { Box, Paper, Typography, useTheme } from '@mui/material'
-import { useCallback, useState } from 'react'
-import { useRouter } from 'next/router'
-import { delay, generateRoute } from '../../utilityFunctions'
-
 
 interface CitrixPageItemProps {
   imageSrc: string,
   text: string,
-  subtext?: string
+  subtext?: string,
+  handleClick: () => void
 }
 
-export const CitrixPageItem: React.VFC<CitrixPageItemProps> = ({ imageSrc, text, subtext }) => {
+export const CitrixPageItem: React.VFC<CitrixPageItemProps> = ({ imageSrc, text, subtext, handleClick }) => {
   const theme = useTheme()
-  const router = useRouter()
-  const [initial, setInitial] = useState(true)
-  const handleClick = useCallback(async () => {
-    await delay(5)
-    if (initial) {
-      setInitial(false)
-    } else {
-      router.push(generateRoute(router.pathname, text))
-    }
-  }, [text, delay, initial, setInitial])
 
   return (
-    <Box onClick={handleClick} component={Paper} variant="outlined" padding={3} display="inline-block" sx={{ cursor: 'pointer' }}>
+    <Box onClick={() => handleClick()} component={Paper} variant="outlined" padding={3} display="inline-block" sx={{ cursor: 'pointer' }}>
       <Box display="flex" flexDirection="column">
         <Image
           src={imageSrc}

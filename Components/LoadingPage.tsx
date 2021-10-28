@@ -6,7 +6,7 @@ export const LoadingPage = () => {
   return (
     <Box display="flex" alignItems="center" flexDirection="column" justifyContent="center" height="100vh" width="100vw">
       <Image
-        src="/images/loading.gif"
+        src="https://i.ibb.co/JxG9bDv/loading.gif"
         alt="loading icon"
         width={200}
         height={200}

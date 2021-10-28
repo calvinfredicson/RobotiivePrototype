@@ -9,7 +9,11 @@ export const routeList: routeListObj[] = [
     url: "/DelayedLogin/"
   },
   {
-    title: 'Load Recipe',
+    title: "Load Recipe",
     url: "/LoadRecipe/"
+  },
+  {
+    title: "SAP Compare",
+    url: "/SAP/"
   }
 ]
