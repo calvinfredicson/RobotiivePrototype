@@ -69,7 +69,7 @@ const MainPage: NextPage = () => {
         <Box display="flex" justifyContent="flex-end" padding={theme.spacing(4, 5)}>
           <TextField onKeyUp={doSearch} value={search} placeholder="Search Apps" onChange={handleTextFieldChange} />
         </Box>
-        <Box display="flex" flexWrap="wrap" gap={2} padding={4} paddingTop={0}>
+        <Box display="grid" padding={5} gap={2} gridTemplateColumns="repeat(auto-fit, minmax(210px, max-content))" justifyContent="center">
           {
             pageItem.map((item, index) => (
               <CitrixPageItem

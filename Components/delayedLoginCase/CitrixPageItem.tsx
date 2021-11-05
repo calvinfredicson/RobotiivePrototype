@@ -13,7 +13,7 @@ export const CitrixPageItem: React.VFC<CitrixPageItemProps> = ({ imageSrc, text,
   const theme = useTheme()
 
   return (
-    <Box onClick={() => handleClick()} component={Paper} variant="outlined" padding={3} display="inline-block" sx={{ cursor: 'pointer' }}>
+    <Box onClick={handleClick} component={Paper} variant="outlined" padding={3} display="inline-block" sx={{ cursor: 'pointer' }}>
       <Box display="flex" flexDirection="column">
         <Image
           src={imageSrc}
