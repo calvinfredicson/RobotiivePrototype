@@ -26,7 +26,7 @@ const Index: NextPage = () => {
     setLoading(true)
     await delay(5)
     setLoading(false)
-    router.replace("http://localhost:3000/ProcessComplete")
+    router.replace("/ProcessComplete")
   }, [router])
 
   const handleRadioClick = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {

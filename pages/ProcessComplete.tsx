@@ -7,7 +7,7 @@ import { useCallback } from "react"
 const ProcessComplete: NextPage = () => {
   const router = useRouter()
   const toMenu = useCallback(() => {
-    router.replace("http://localhost:3000/")
+    router.replace("/")
   }, [])
 
   return (

@@ -24,7 +24,7 @@ const DelayedLogin: NextPage = () => {
     setPassword("")
     setLoading(false)
     if (loginResult.status) {
-      router.replace("http://localhost:3000/DelayedLogin/MainPage")
+      router.replace("/DelayedLogin/MainPage")
       return
     } else {
       setErrorMessage(loginResult.message)

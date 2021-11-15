@@ -32,7 +32,7 @@ const SAP: NextPage = () => {
 
   useEffect(() => {
     if (confirmReturn) {
-      router.replace("http://localhost:3000/ProcessComplete")
+      router.replace("/ProcessComplete")
     }
   }, [confirmReturn])
 
