@@ -25,15 +25,15 @@ const Index: NextPage = () => {
     e.preventDefault()
     setLoading(true)
     await delay(5)
-    setLoading(false)
     router.replace("/ProcessComplete")
+    setLoading(false)
   }, [router])
 
   const handleRadioClick = useCallback(async (e: ChangeEvent<HTMLInputElement>) => {
     setLoading(true)
     await delay(5)
-    setLoading(false)
     setSelectedRadio(e.target.value)
+    setLoading(false)
   }, [])
 
   if (!loading) {

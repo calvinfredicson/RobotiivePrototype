@@ -22,12 +22,13 @@ const DelayedLogin: NextPage = () => {
     const loginResult = await checkLogin(email, password)
     setEmail("")
     setPassword("")
-    setLoading(false)
     if (loginResult.status) {
       router.replace("/DelayedLogin/MainPage")
+      setLoading(false)
       return
     } else {
       setErrorMessage(loginResult.message)
+      setLoading(false)
     }
   }, [email, password, router])
 

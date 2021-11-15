@@ -36,10 +36,11 @@ const MainPage: NextPage = () => {
     await delay(5)
     if (!initialClick) {
       router.replace(`/DelayedLogin/MainPage/${item}`)
+      setLoading(false)
     } else {
       setInitialClick(false)
+      setLoading(false)
     }
-    setLoading(false)
   }, [initialClick])
 
   if (!loading) {
