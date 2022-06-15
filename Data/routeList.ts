@@ -1,19 +1,23 @@
 interface routeListObj {
-  title: string,
-  url: string
+  title: string;
+  url: string;
 }
 
 export const routeList: routeListObj[] = [
   {
     title: "Delayed Login",
-    url: "/DelayedLogin/"
+    url: "/DelayedLogin/",
   },
   {
     title: "Load Recipe",
-    url: "/LoadRecipe/"
+    url: "/LoadRecipe/",
   },
   {
     title: "SAP Compare",
-    url: "/SAP/"
-  }
-]
+    url: "/SAP/",
+  },
+  {
+    title: "Scrolling Table",
+    url: "ScrollingTable",
+  },
+];
